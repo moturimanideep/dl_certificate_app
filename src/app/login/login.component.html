@@ -1,0 +1,38 @@
+ <main style="height:100vh">
+    <div style="background: url(../../../assets/block-chain.png) no-repeat center center fixed; background-size: cover;">
+        <div fxLayout='row' fxLayoutAlign='end center' style="height:100vh; margin-right:80px;">
+            <mat-card style="position:fixed" style="border-radius: 8px;width:30%;">
+              <mat-card-content>
+
+      
+                  <div fxLayout='row wrap' fxLayoutAlign='center center'>
+                    <div fxFlex='100' style="margin-bottom: 15px;">
+                      <h1 style="text-align: center; background-color: gray; color: white; border-radius: 5px;padding: 15px 0px 15px 0px;">BLOCKCHAIN</h1>
+                    </div>
+                    <form style="width: 100%">
+                      <div fxFlex='100'>
+                      <mat-form-field style="width: 100%; padding: 15px 0px 15px 0px;">
+                        <input matInput placeholder="Email"  required>
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex='100'>
+                        <mat-form-field style="width: 100%; padding: 10px 0px 15px 0px;">
+                          <input matInput placeholder="password" >
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout='row' fxLayoutAlign='center center'>
+                    <div fxFlex='100'>
+                        <button type="submit" mat-raised-button style="background-color: #767b84; color: white; padding: 5px 100px 5px 100px;
+                        font-size: 21px; border-radius: 5px; margin-left: 60px;" (click)='login()'>
+                          Login
+                        </button>
+                    </div>
+                  </div>
+                    </form>
+              
+                </div>
+              </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</main>

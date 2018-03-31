@@ -1,0 +1,36 @@
+<aside style="padding: 10px; " #content>
+  <main style="background: url(../../../assets/certificate-banner.png) no-repeat center center fixed; border: 2px solid black; padding: 15px 0px 15px 30px;">
+    <div fxLayout="row" fxLayoutAlign='start start' >
+        <div fxFlex='100'>
+            <img src="{{company.imgsrc}}" [alt]="Logo">
+        </div>    
+    </div>
+    <div fxLayout="row" fxLayoutAlign='start start' >
+        <div fxFlex='100'>
+            <h1>{{user.name}}</h1>
+        </div>    
+    </div>
+    <div fxLayout="row" fxLayoutAlign='start start' >
+        <div fxFlex='100'>
+            <h3>This is certify that <span></span> has successfully completed a course in <span></span> on the day of <span></span> in the year </h3>
+        </div>    
+    </div>
+    <div fxLayout="row" fxLayoutAlign='start start' style="padding-top: 20px;">
+            <div fxFlex='100'>
+                <img src={{enterpreneur.sign}} alt="Hari Prasad">
+                <h3>{{enterpreneur.name}}</h3>
+                <h3>{{enterpreneur.designation}}</h3>
+            </div>    
+    </div>
+    <div fxLayout="row" fxLayoutAlign='start start' style="padding-top: 20px;">
+        <div fxFlex='100'>
+            <h3><span style="background-color: black; padding: 8px; color: white;">Verify Certificate</span></h3>
+            <h3>Public Key: <span style="color: #B2B2B0;">{{user.publickey}}</span></h3>
+            <h3>Blockchain Address: <span style="color: #B2B2B0;">{{user.blockchainAddress}}</span></h3>
+        </div>    
+    </div>
+    <button (click)="downloadPDF()">Download</button>
+  </main>
+</aside> 
+
+
