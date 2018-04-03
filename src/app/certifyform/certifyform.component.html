@@ -1,40 +1,42 @@
 <div style="height:100vh">
-    <main style="background: url(../../../assets/block-chain.png) no-repeat center center fixed; background-size: cover;">
-      <div fxLayout="row" fxLayoutAlign="end center" class="padding" style="height:100vh;margin-right:60px;">
-        <mat-card style="position:fixed" style="border-radius: 8px;width:38%;">
+    <main style="background: url(../../../assets/banner.jpg) no-repeat center center fixed; background-size: cover;">
+      <img src="../../../assets/logo12.png" [alt]="Logo" width="250px" height="70px; " align='middle' style="margin-left: 30px; margin-top: 20px; ">
+      <button type="submit" mat-raised-button class="reg-btn" (click)=logout() class="btn pull-right" style="background-color: #ffdf69; color: #08262b; padding: 3px 25px 3px 25px; font-size: 21px; border-radius: 5px; margin: 20px 20px 0px 0px;">Logout</button>
+      <div fxLayout="row" fxLayoutAlign="end center" class="padding" style="height:100vh;margin-right:60px; ">
+        <mat-card style="position:fixed" style="border-radius: 8px;width:34%; padding: 0px; margin-top: -155px;">
           <mat-card-content>
             <div fxLayout="row wrap" fxLayoutAlign="center center">
               <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="100" fxFlex.xl="50">
                 <form novalidate autocomplete="off" >
-                  <mat-card style="box-shadow: none;border-radius:16px;">
+                  <mat-card style="box-shadow: none;border-radius:16px; padding: 0px;">
                     <mat-card-content>
                       <div fxLayout="row wrap" fxLayoutAlign="center end">
-                        <div fxFlex="100" class="text-center" style="background-color: #767b84; color: white; border-radius: 5px; margin-bottom: 10px;">
-                          <h1 style="font-size: 45px; padding-bottom: 6px;">Blockchain</h1>
+                        <div fxFlex="100" class="text-center" style="background-image: url(../../../assets/header-banner.png); color: white; border-radius: 5px; margin-bottom: 10px; padding: 10px;">
+                          <h1 style="font-size: 32px; padding-bottom: 6px;  padding-left: 30px;">DIGITAL DOCUMENT</h1>
                         </div>  
-                        <div fxLayout="row wrap" fxLayoutAlign="center end">
+                        <div fxLayout="row wrap" fxLayoutAlign="center end" style="padding: 20px 30px 30px 30px;">
                           <mat-form-field fxFlex="100">
-                            <input matInput placeholder="Name" required  >
+                            <input matInput placeholder="Name" required [(ngModel)]='certifyForm.names' name="names"  >
                           </mat-form-field>
-                          <span class="error" *ngIf="Certify.get('name').touched && Certify.get('name').hasError('required')">
+                          <!-- <span class="error" *ngIf="Certify.get('name').touched && Certify.get('name').hasError('required')">
                             Name required
-                          </span>
+                          </span> -->
                          
                           <mat-form-field fxFlex="100">
-                            <input matInput placeholder="Email" required >
+                            <input matInput placeholder="Email" [(ngModel)]='certifyForm.email' name="email"  required >
                           </mat-form-field>
-                          <span class="error" *ngIf="Certify.get('email').touched && Certify.get('email').hasError('required')">
+                          <!-- <span class="error" *ngIf="Certify.get('email').touched && Certify.get('email').hasError('required')">
                             Email required
                           </span>
                           <span class="error" *ngIf="Certify.get('email').touched && Certify.get('email').hasError('pattern')">
                             Enter valid Email
-                          </span> 
+                          </span>  -->
                           <mat-form-field fxFlex="100">
-                            <input matInput placeholder="Mobile" required >
+                            <input matInput placeholder="Mobile" [(ngModel)]='certifyForm.contact'  name='contact' required >
                           </mat-form-field>
                           
                           <mat-form-field fxFlex="100">
-                            <mat-select placeholder="Courses Intrested"   >
+                            <mat-select placeholder="Course Completed" [(ngModel)]='certifyForm.course' name='course' >
                               <mat-option *ngFor="let course of courses" [value]="course.value">
                                 {{ course.viewValue }}
                               </mat-option>
@@ -43,15 +45,13 @@
                           
                           <div fxFlex="row" fxLayoutAlign="start start" >
                             <div fxFlex="100" fxLayoutAlign="center center" style="margin-top: 5px;">
-                              <button type="submit" mat-raised-button class="reg-btn" (click)="registerr()" style="background-color: #767b84; color: white; padding: 5px 100px 5px 100px;
+                              <button type="submit" mat-raised-button class="reg-btn" (click)="certifyFormEvent(certifyForm)" style="background-color: #ffdf69; color: #08262b; padding: 5px 100px 5px 100px;
                               font-size: 21px; border-radius: 5px;">
                                 Certify
                               </button>
                             </div>
                           </div>
                         </div>
-                        <div class="status" *ngIf="showServerError">{{showServerError}}</div>
-                        <div class="topic-title" *ngIf="registerSuccess">{{registerSuccess}}</div>
                       </div>
                     </mat-card-content>
                   </mat-card>

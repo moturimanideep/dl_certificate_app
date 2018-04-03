@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerifycertificateComponent } from './verifycertificate/verifycertificate.component';
 import { LoginComponent } from './login/login.component';
+import { CommonService } from '../app/common.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,  AppRoutingModule, MatInputModule, MatButtonModule, MatCardModule, HttpModule,
     BrowserAnimationsModule, FormsModule, ReactiveFormsModule, MatSelectModule, FlexLayoutModule
   ],
-  providers: [],
+  providers: [CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

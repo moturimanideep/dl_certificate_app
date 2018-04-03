@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import { ReactiveFormsModule, FormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { CertifyForm } from '../entities/certifyform.entity';
-
+import { CommonService } from '../common.service';
 @Component({
   selector: 'app-certifyform',
   templateUrl: './certifyform.component.html',
@@ -17,6 +17,7 @@ export class CertifyformComponent implements OnInit {
   certifyForm: CertifyForm;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   mobilePattern = '[0-9]*';
+  response: any;
   courses = [
     {value: 'Front End', viewValue: 'Front End'},
     {value: 'Devops', viewValue: 'Devops'},
@@ -26,19 +27,41 @@ export class CertifyformComponent implements OnInit {
     {value: 'Design', viewValue: 'Design'},
     {value: 'Digital Marketing', viewValue: 'Digital Marketing'},
   ];
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, private commonService: CommonService, private router: Router) { 
     this.certifyForm = new CertifyForm();
     this.Certify = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required, Validators.pattern(this.emailPattern)],
-      mobile: ['', Validators.required, Validators.pattern(this.mobilePattern)],
-      courseIntrested: ['', Validators.required]
+      mobile: ['', Validators.required, Validators.pattern(this.mobilePattern)]
     })
   }
 
   ngOnInit() {
   }
+  certifyFormEvent(certifyForm: any){
+    let data = certifyForm;
+    console.log(data);
 
+    this.commonService.cerifyFormRest(data).subscribe(
+      (res) => { 
+          this.response = res; 
+          console.log(this.response); 
+          if(this.response.status == '1'){
+              // this.router.navigate()
+              this.router.navigate(['/certificate']);
+          }else if(this.response.status == '0'){
+              console.log('enter all details');
+          }
+        
+      },
+      (err) => { console.log(err) }
+    )
+
+
+  }
+  logout(){
+    this.router.navigate(['login']);
+  }
 
   
 

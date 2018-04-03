@@ -28,9 +28,11 @@
     "core-js": "^2.4.1",
     "flex-layout": "^1.0.1",
     "flex-layout-srcs": "github:angular/flex-layout",
+    "fs": "0.0.1-security",
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",
     "jspdf": "^1.3.5",
+    "md5": "^2.2.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },

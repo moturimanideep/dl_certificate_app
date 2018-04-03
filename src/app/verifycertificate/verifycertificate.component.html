@@ -1,31 +1,55 @@
-<main class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <img src='{{logo}}'>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Verify Certificate</h1>
-            </div>
-        </div>
-        <div class="row">
-          <div class="col-md-offset-3 col-md-3">
-              <mat-form-field>
-                  <input matInput placeholder="Transaction Id"  required>
-                </mat-form-field>
-          </div>
-          <div class="col-md-3">
-              <mat-form-field>
-                  <input matInput placeholder="Transaction Id"  required>
-                </mat-form-field>
-          </div>
-          <div class="col-md-3">
-              <button type="submit" mat-raised-button style="background-color: #767b84; color: white; padding: 5px 100px 5px 100px;
-                        font-size: 21px; border-radius: 5px; margin-left: 60px;">
+<main style="height:100vh">
+    <div style="background: url(../../../assets/banner.jpg) no-repeat center center fixed; background-size: cover;">
+  
+      
+        <img src="../../../assets/logo12.png" [alt]="Logo" width="250px" height="70px; " align='middle' style="margin-left: 30px; margin-top: 20px; ">
+        <div fxLayout='row' fxLayoutAlign='center center' style="height:100vh; margin-right:95px; margin-top: -90px; ">
+            <mat-card style="position:fixed" style="border-radius: 8px;width:30%; padding: 0px !important;">
+              <mat-card-content>
+                  <div fxLayout='row wrap' fxLayoutAlign='center center'>
+                    <div fxFlex='100' style="margin-bottom: 15px; background-image: url(../../../assets/header-banner.png); border-radius: 5px 5px 0px 0px;">
+                      <h3 style="text-align: center;  color: white; border-radius: 5px;padding: 15px 0px 15px 35px; font-size: 28px;">DIGITAL DOCUMENT</h3>
+                    </div>
+                    <form  style="width: 100%; padding: 24px;">
+                      <div fxFlex='100'>
+                      <mat-form-field style="width: 100%; padding: 15px 0px 15px 0px;">
+                        <input type='text' matInput placeholder="Transaction Id" [(ngModel)]='transactionid' name="transactionid" required>
+                        <!-- <span class="error" *ngIf="UserDetailsForm.get('email1').touched && UserDetailsForm.get('email1').hasError('required')">
+                          Email required
+                        </span>
+                        <span class="error" *ngIf="UserDetailsForm.get('email1').touched && UserDetailsForm.get('email1').hasError('pattern')">
+                          Enter valid Email
+                        </span> -->
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex='100'>
+                        <div style="width: 100%; padding: 5px 0px 20px 0px;">
+                            <span style="font-size: 15px; margin-bottom: 10px;">PDF Doc: </span>
+                            <input type='file'  (change)='onFileSelected($event)'  required >
+                        </div>
+                    </div>
+                    <div fxLayout='row' fxLayoutAlign='center center'>
+                    <div fxFlex='100'>
+                        <button type="submit" mat-raised-button style="background-color: #ffdf69; color: #08262b; padding: 5px 100px 5px 100px;
+                        font-size: 21px; border-radius: 5px; margin-left: 50px;" (click)='onUpload(transactionid, file-to-upload)'>
                           Verify
                 </button>
-                
-          </div>
+                        
+                    </div>
+                  </div>
+                    </form>
+              
+                </div>
+              </mat-card-content>
+            </mat-card>
         </div>
     </div>
 </main>
+
+
+
+
+
+
+
+

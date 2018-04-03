@@ -1,6 +1,6 @@
 export class CertifyForm{
-    name: string;
+    names: string;
     email: string;
-    mobile: string;
-    courseIntrested: string;
+    contact: string;
+    course: string;
 }
