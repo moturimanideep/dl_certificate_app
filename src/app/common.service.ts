@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class CommonService {
   url: string;
+  certificateStatus: any;
   constructor(private http: Http) { 
   }
   // loginUser(user): any{
@@ -16,14 +17,20 @@ export class CommonService {
   // }
 
   cerifyFormRest(obj: any){
-    this.url = 'http://172.23.24.56:8080' + '/register';
+    this.url = 'http://172.23.24.47:8080' + '/register';
     return this.http.post(this.url, obj).map(response => {
       let data = response.json();
       return response.json();
     })
   }
 
+  sendCertificateStatus(data: any){
+    this.certificateStatus = data;
+  }
 
+  getCertificateStatus(){
+    return this.certificateStatus;
+  }
 
 
 
@@ -33,7 +40,7 @@ export class CommonService {
   verifyCertificate(obj: any){
     let object = obj;
     console.log(object);
-    this.url = 'http://172.23.24.56:8080' + '/validate';
+    this.url = 'http://172.23.24.47:8080' + '/validate';
     return this.http.post(this.url, object).map(response => {
       let data = response.json();
       return response.json();

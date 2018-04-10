@@ -20,6 +20,7 @@ export class CertifyformComponent implements OnInit {
   response: any;
   courses = [
     {value: 'Front End', viewValue: 'Front End'},
+    {value: 'Block Chain', viewValue: 'Block Chain'},
     {value: 'Devops', viewValue: 'Devops'},
     {value: 'Full Stack', viewValue: 'Full Stack'},
     {value: 'Python', viewValue: 'Python'},
@@ -47,10 +48,12 @@ export class CertifyformComponent implements OnInit {
           this.response = res; 
           console.log(this.response); 
           if(this.response.status == '1'){
-              // this.router.navigate()
+            console.log(this.response.message);
+            this.commonService.sendCertificateStatus(this.response);
               this.router.navigate(['/certificate']);
           }else if(this.response.status == '0'){
-              console.log('enter all details');
+            this.commonService.sendCertificateStatus(this.response);
+            this.router.navigate(['/certificate']);
           }
         
       },

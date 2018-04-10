@@ -2,7 +2,7 @@
     <div style="background: url(../../../assets/banner.jpg) no-repeat center center fixed; background-size: cover;">
   
       
-        <img src="../../../assets/logo12.png" [alt]="Logo" width="250px" height="70px; " align='middle' style="margin-left: 30px; margin-top: 20px; ">
+        <a routerLink='/certifyform'><img src="../../../assets/logo12.png" [alt]="Logo" width="250px" height="70px; " align='middle' style="margin-left: 30px; margin-top: 20px; "></a>
         <div fxLayout='row' fxLayoutAlign='center center' style="height:100vh; margin-right:95px; margin-top: -90px; ">
             <mat-card style="position:fixed" style="border-radius: 8px;width:30%; padding: 0px !important;">
               <mat-card-content>
@@ -12,7 +12,9 @@
                     </div>
                     <form  style="width: 100%; padding: 24px;">
                       <div fxFlex='100'>
+                          <h3 style="color: #00CC00; padding-left: 20px;">{{response_msg}}</h3>
                       <mat-form-field style="width: 100%; padding: 15px 0px 15px 0px;">
+                          
                         <input type='text' matInput placeholder="Transaction Id" [(ngModel)]='transactionid' name="transactionid" required>
                         <!-- <span class="error" *ngIf="UserDetailsForm.get('email1').touched && UserDetailsForm.get('email1').hasError('required')">
                           Email required
@@ -23,9 +25,10 @@
                       </mat-form-field>
                     </div>
                     <div fxFlex='100'>
-                        <div style="width: 100%; padding: 5px 0px 20px 0px;">
-                            <span style="font-size: 15px; margin-bottom: 10px;">PDF Doc: </span>
-                            <input type='file'  (change)='onFileSelected($event)'  required >
+                        <div style="width: 100%; padding: 5px 0px 20px 0px; height: 75px;">
+                            <span style="font-size: 13px; ">Select an PDF file*: </span>
+                            <input type='file'  (change)='onFileSelected($event)'  required  >
+                            <span style="color: red; padding-left: 10px;">{{fileExtensionMessage}}</span>
                         </div>
                     </div>
                     <div fxLayout='row' fxLayoutAlign='center center'>

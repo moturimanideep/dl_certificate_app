@@ -28,6 +28,7 @@
     "core-js": "^2.4.1",
     "flex-layout": "^1.0.1",
     "flex-layout-srcs": "github:angular/flex-layout",
+    "font-awesome": "^4.7.0",
     "fs": "0.0.1-security",
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",
